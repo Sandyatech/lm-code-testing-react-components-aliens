@@ -3,6 +3,6 @@ import NumberOfBeings from './NumberOfBeings';
 
 test('renders form element', () => {
 
-	render(<NumberOfBeings numberOfBeings="" onChangeNumberOfBeings={() => { }} />);
+    render(<NumberOfBeings numberOfBeings="" onChangeNumberOfBeings={() => { }} />);
 
 });

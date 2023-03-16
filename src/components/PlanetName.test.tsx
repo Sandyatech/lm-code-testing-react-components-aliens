@@ -3,6 +3,6 @@ import PlanetName from './PlanetName';
 
 test('renders form element', () => {
 
-	render(<PlanetName planetName="" onChangePlanetName={() => { }} />);
+    render(<PlanetName planetName="" onChangePlanetName={() => { }} />);
 
 });
