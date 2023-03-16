@@ -10,7 +10,7 @@ import ReasonForSparing from './ReasonForSparing';
 const W12MForm = () => {
 	const [speciesName, setSpeciesName] = useState<string>('');
 	const [planetName, setPlanetName] = useState<string>('');
-	const [numberOfBeings, setNumberOfBeings] = useState<number>();
+	const [numberOfBeings, setNumberOfBeings] = useState<string>('');
 	const [add2Plus2, setAdd2Plus2] = useState<string>('NOT_SELECTED');
 	const [reasonForSparing, setreasonForSparing] = useState<string>('');
 	const [display, setDisplay] = useState<boolean>(false); 

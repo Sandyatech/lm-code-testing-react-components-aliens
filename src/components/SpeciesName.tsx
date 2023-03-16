@@ -17,7 +17,8 @@ const SpeciesName: React.FC<SpeciesNameProps> = ({ speciesName, onChangeSpeciesN
 		const specialChars = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 		const numbers = /[0-9]/;
 		//if (value == undefined)
-		//	return undefined;
+		//	return undefinedw
+
 		if ((value.length <= 3) || (value.length >= 23))
 			return ("Species Name Should be in between 3 to 23 characeters of length");
 		if (specialChars.test(value))
