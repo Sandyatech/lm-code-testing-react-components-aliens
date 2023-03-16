@@ -8,15 +8,18 @@ interface NumberOfBeingsProps {
 
 const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({ numberOfBeings, onChangeNumberOfBeings }) => {
 
-	const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+	const [errorMessage, setErrorMessage] = useState<string[] | undefined>();
 
-	const validate: (value: string) => string | undefined = (value) => {
-
+	const validate: (value: string) => string[] | undefined = (value) => {
+		let errors: string[] = [];
 		if (isNaN(parseInt(value)))
-			return ("Its Not valid Number");
+			errors.push("Its Not valid Number");
 		if (parseInt(value) < 1000000000)
-			return ("Number of Beings Should be atleast 1000000000");
-		return undefined;
+			errors.push("Number of Beings Should be atleast 1000000000");
+		if (errors.length == 0)
+			return undefined;
+		else
+			return errors;
 	}
 
 	return (

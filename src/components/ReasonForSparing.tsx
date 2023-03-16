@@ -8,12 +8,12 @@ interface ReasonForSparingProps {
 
 const ReasonForSparing: React.FC<ReasonForSparingProps> = ({ reasonForSparing, onChangeReasonForSparing }) => {
 
-	const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+	const [errorMessage, setErrorMessage] = useState<string[] | undefined>();
 
-	const validate: (value: string) => string | undefined = (value) => {
+	const validate: (value: string) => string[] | undefined = (value) => {
 
 		if ((value.length <= 17) || (value.length >= 153))
-			return ("Reason for Sparing Should be in between 17 to 153 characeters of length");
+			return (["Reason for Sparing Should be in between 17 to 153 characeters of length"]);
 		return undefined;
 	}
 

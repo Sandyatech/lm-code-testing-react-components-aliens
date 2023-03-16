@@ -9,16 +9,19 @@ interface PlanetNameProps {
 
 const PlanetName: React.FC<PlanetNameProps> = ({ planetName, onChangePlanetName }) => {
 
-	const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+	const [errorMessage, setErrorMessage] = useState<string[] | undefined>();
 
-	const validate: (value: string) => string | undefined = (value) => {
-
+	const validate: (value: string) => string[] | undefined = (value) => {
+		let errors: string[] = [];
 		const specialChars = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 		if ((value.length <= 2) || (value.length >= 49))
-			return ("Planet Name Should be in between 2 to 49 characeters of length");
+			errors.push("Planet Name Should be in between 2 to 49 characeters of length");
 		if (specialChars.test(value))
-			return ("No special characters allowed.");
-		return undefined;
+			errors.push("No special characters allowed in Planet Name");
+		if (errors.length == 0)
+			return undefined;
+		else
+			return errors;
 	}
 
 	return (

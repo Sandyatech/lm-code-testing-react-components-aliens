@@ -8,13 +8,16 @@ interface Add2Plus2Props {
 
 const Add2Plus2: React.FC<Add2Plus2Props> = ({ add2Plus2, onChangeAdd2Plus2 }) => {
 
-	const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+	const [errorMessage, setErrorMessage] = useState<string[] | undefined>();
 
-	const validate: (value: string) => string | undefined = (value) => {
-
+	const validate: (value: string) => string[] | undefined = (value) => {
+		let errors: string[] = [];
 		if (value!== "4")
-			return ("add2Plus2 should be 4");
-		return undefined;
+			errors.push("It should be 4");
+		if (errors.length < 1)
+			return undefined;
+		else
+			return errors;
 	}
 
 	return (

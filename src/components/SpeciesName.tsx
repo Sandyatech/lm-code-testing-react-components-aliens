@@ -10,22 +10,24 @@ interface SpeciesNameProps {
 
 const SpeciesName: React.FC<SpeciesNameProps> = ({ speciesName, onChangeSpeciesName }) => {
 
-	const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+	const [errorMessage, setErrorMessage] = useState<string[] | undefined>();
 
-	const validate: (value: string) => string | undefined = (value) => {
+	const validate: (value: string) => string[] | undefined = (value) => {
 		
 		const specialChars = /[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 		const numbers = /[0-9]/;
-		//if (value == undefined)
-		//	return undefinedw
+		let errors: string[]=[];
 
 		if ((value.length <= 3) || (value.length >= 23))
-			return ("Species Name Should be in between 3 to 23 characeters of length");
+			errors.push("Species Name Should be in between 3 to 23 characeters of length");
 		if (specialChars.test(value))
-			return ("No special characters allowed.");
+			errors.push("No special characters allowed in Species Name");
 		if (numbers.test(value))
-			return ("No Numbers are allowed.");
-		return undefined;
+			errors.push("No Numbers are allowed in Species Name");
+		if (errors.length == 0)
+			return undefined;
+		else
+			return errors;
 	}
 
 	return (

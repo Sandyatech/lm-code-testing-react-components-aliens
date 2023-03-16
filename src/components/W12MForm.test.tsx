@@ -46,7 +46,7 @@ describe('<W12MForm>', () => {
 			'reasonForSparing',
 			'It is nice to be nice'
 		);
-		await enterIntoTextBox(textBoxes, 'numberOfBeings', '12345');
+		await enterIntoTextBox(textBoxes, 'numberOfBeings', '1000000000');
 
 		const twoPlusTwo = screen
 			.getAllByRole('combobox')
@@ -66,7 +66,7 @@ describe('<W12MForm>', () => {
 		expect(screen.getByText(/Earth/i)).toBeInTheDocument();
 		const reason = screen.getAllByText(/.*It is nice to be nice.*/i);
 		expect(reason[0]).toBeInTheDocument();
-		expect(screen.getByText(/12345/i)).toBeInTheDocument();
+		expect(screen.getByText(/1000000000/i)).toBeInTheDocument();
 		expect(screen.getByText("4")).toBeInTheDocument();
 	});
 });
